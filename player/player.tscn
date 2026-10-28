@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bs1v5088easgk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://b4jerjbig4nsm" path="res://icon.svg" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://player/hitbox_component.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://player/health_component.gd" id="3_yw30f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1059315968]
 position = Vector2(556, 282)
@@ -10,3 +14,13 @@ script = ExtResource("1_oul6g")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1803290971]
 scale = Vector2(0.34, 0.34)
 texture = ExtResource("2_rkbax")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1344405089]
+script = ExtResource("3_yw30f")
+MAX_HEALTH = null
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1231804463]
+script = ExtResource("3_g1dw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1784873141]
+shape = SubResource("RectangleShape2D_vu0qy")

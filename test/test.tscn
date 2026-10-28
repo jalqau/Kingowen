@@ -5,3 +5,10 @@
 [node name="test" type="Node2D" unique_id=718247929]
 
 [node name="Player" parent="." unique_id=1059315968 instance=ExtResource("1_syuel")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=211863535]
+position = Vector2(-1, 0)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
