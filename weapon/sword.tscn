@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://djxe6jqr1xdgi"]
+
+[ext_resource type="Script" uid="uid://crkjftp6msgwo" path="res://weapon/sword.gd" id="1_vx5j4"]
+
+[node name="Sword" type="Node2D" unique_id=2025403122]
+script = ExtResource("1_vx5j4")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1195071376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1929509040]
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

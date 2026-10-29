@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://player/hitbox_component.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://player/health_component.gd" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://c5v1ooabmmrrg" path="res://sprites/player-neo.png" id="4_dqkch"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
-size = Vector2(30, 18)
+[ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapon/sword.tscn" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("4_dqkch")
@@ -102,20 +100,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
+size = Vector2(30, 18)
+
 [node name="Player" type="CharacterBody2D" unique_id=1059315968]
 position = Vector2(556, 282)
 script = ExtResource("1_oul6g")
-
-[node name="HealthComponent" type="Node2D" parent="." unique_id=1344405089]
-script = ExtResource("3_yw30f")
-MAX_HEALTH = null
-
-[node name="HitboxComponent" type="Area2D" parent="." unique_id=1231804463]
-script = ExtResource("3_g1dw6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1784873141]
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_vu0qy")
+speed = null
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1197321676]
 z_index = -1
@@ -128,3 +119,16 @@ animation = &"run"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="aim_pivot" unique_id=132574110]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_lvy0h")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1344405089]
+script = ExtResource("3_yw30f")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1231804463 node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_g1dw6")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1784873141]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vu0qy")
+
+[node name="Sword" parent="." unique_id=2025403122 instance=ExtResource("5_qlg0r")]

@@ -1,12 +1,13 @@
 extends CharacterBody2D
 @export var speed: float = 300.0
-
+@onready var melee_weapon: MeleeWeapon = $Sword
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
 	move()
+	handle_attack_input()
 
 @onready var aim_pivot: Node2D = $aim_pivot
 
@@ -42,10 +43,11 @@ func move():
 	
 	velocity = input_direction * speed
 	move_and_slide()
-func attack():
+func handle_attack_input():
+	var attack_br = Input.is_action_just_pressed("attack")
 	
-	pass
-func health():
-	pass
+	if attack_br :
+		melee_weapon.attack()
+	
 func boredom():
 	pass
