@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kingowen"
-run/main_scene="uid://rsg2xoy7l4jw"
+run/main_scene="uid://dwh5nw7janvkh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -54,4 +54,5 @@ attack={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://dwh5nw7janvkh"]
 
-[ext_resource type="PackedScene" uid="uid://rsg2xoy7l4jw" path="res://player/player.tscn" id="1_syuel"]
+[ext_resource type="PackedScene" uid="uid://b150klcvi0p63" path="res://scenes/level 1.tscn" id="1_8a8pi"]
+[ext_resource type="PackedScene" uid="uid://rsg2xoy7l4jw" path="res://scenes/player.tscn" id="1_syuel"]
 
 [node name="test" type="Node2D" unique_id=718247929]
 
-[node name="Player" parent="." unique_id=1059315968 instance=ExtResource("1_syuel")]
+[node name="Level1" parent="." unique_id=1348367504 instance=ExtResource("1_8a8pi")]
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=211863535]
+[node name="Player" parent="Level1" unique_id=1059315968 instance=ExtResource("1_syuel")]
+position = Vector2(9.999999, 7.1054274e-15)
+
+[node name="Camera2D" type="Camera2D" parent="Level1/Player" unique_id=211863535]
 position = Vector2(-1, 0)
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
+zoom = Vector2(5, 5)
+limit_left = -581
+limit_top = -339
+limit_right = 571
+limit_bottom = 311
