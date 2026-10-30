@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bvqw6gd015mx1"]
+
+[node name="bullet" type="Area2D" unique_id=1135131520]

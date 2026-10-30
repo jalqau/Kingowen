@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djxe6jqr1xdgi"]
 
-[ext_resource type="Script" uid="uid://crkjftp6msgwo" path="res://weapon/sword.gd" id="1_vx5j4"]
+[ext_resource type="Script" uid="uid://crkjftp6msgwo" path="res://weapons/sword.gd" id="1_vx5j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbfq4"]
 
