@@ -1,4 +1,4 @@
-class_name MeleeWeapon
+class_name Weapon
 extends Node2D
 
 @export var attack_damage : float = 0.0

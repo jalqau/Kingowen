@@ -1,4 +1,4 @@
-extends MeleeWeapon
+extends Weapon
 
 @export var swing_time : float = 0.4
 @export var hit_time : float = 0.15

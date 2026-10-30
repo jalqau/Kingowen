@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://scenes/hitbox_component.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://scenes/health_component.gd" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://c5v1ooabmmrrg" path="res://sprites/player-neo.png" id="4_dqkch"]
-[ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapons/sword.tscn" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapons/melee_weapon/sword.tscn" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("4_dqkch")
