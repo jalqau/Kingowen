@@ -10,12 +10,8 @@ func _physics_process(delta: float) -> void:
 	handle_attack_input()
 
 @onready var aim_pivot: Node2D = $aim_pivot
-
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $aim_pivot/AnimatedSprite2D
-
 @onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
-
 
 func move():
 	
@@ -48,6 +44,5 @@ func handle_attack_input():
 	
 	if attack_br :
 		melee_weapon.attack()
-	
 func boredom():
 	pass

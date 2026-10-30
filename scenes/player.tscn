@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://rsg2xoy7l4jw"]
 
-[ext_resource type="Script" uid="uid://bs1v5088easgk" path="res://scenes/player.gd" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://player/hitbox_component.gd" id="3_g1dw6"]
-[ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://player/health_component.gd" id="3_yw30f"]
+[ext_resource type="Script" uid="uid://bs1v5088easgk" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://scenes/hitbox_component.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://scenes/health_component.gd" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://c5v1ooabmmrrg" path="res://sprites/player-neo.png" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapon/sword.tscn" id="5_qlg0r"]
 
@@ -106,7 +106,6 @@ size = Vector2(30, 18)
 [node name="Player" type="CharacterBody2D" unique_id=1059315968]
 position = Vector2(556, 282)
 script = ExtResource("1_oul6g")
-speed = null
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1197321676]
 z_index = -1
@@ -132,3 +131,5 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_vu0qy")
 
 [node name="Sword" parent="." unique_id=2025403122 instance=ExtResource("5_qlg0r")]
+knockback_force = 5.0
+stun_time = 1.0

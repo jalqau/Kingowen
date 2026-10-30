@@ -2,11 +2,20 @@
 
 [ext_resource type="Script" uid="uid://crkjftp6msgwo" path="res://weapon/sword.gd" id="1_vx5j4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbfq4"]
+
 [node name="Sword" type="Node2D" unique_id=2025403122]
 script = ExtResource("1_vx5j4")
+attack_damage = 5.0
+knockback_force = 100.0
+stun_time = 5.0
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1195071376]
+scale = Vector2(1.0133224, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1929509040]
+position = Vector2(10.055, 0)
+scale = Vector2(0.745, 1.71)
+shape = SubResource("RectangleShape2D_tbfq4")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
