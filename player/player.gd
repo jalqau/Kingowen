@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @export var speed: float = 300.0
-@onready var melee_weapon: MeleeWeapon = $Sword
+@onready var melee_weapon: Weapon = $Sword
 
 func _ready() -> void:
 	pass
