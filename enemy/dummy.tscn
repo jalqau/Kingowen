@@ -19,4 +19,5 @@ MAX_HEALTH = 20.0
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=31169104]
+z_index = 1
 shape = SubResource("RectangleShape2D_hrq6i")

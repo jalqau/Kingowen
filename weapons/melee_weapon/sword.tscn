@@ -14,7 +14,8 @@ stun_time = 5.0
 scale = Vector2(1.0133224, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1929509040]
-position = Vector2(10.055, 0)
+z_index = 1
+position = Vector2(11.475, 0)
 scale = Vector2(0.745, 1.71)
 shape = SubResource("RectangleShape2D_tbfq4")
 

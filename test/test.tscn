@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwh5nw7janvkh"]
 
-[ext_resource type="PackedScene" uid="uid://b150klcvi0p63" path="res://scenes/level 1.tscn" id="1_8a8pi"]
+[ext_resource type="PackedScene" uid="uid://b150klcvi0p63" path="res://scenes/levels/level 1.tscn" id="1_8a8pi"]
 [ext_resource type="PackedScene" uid="uid://rsg2xoy7l4jw" path="res://player/player.tscn" id="1_syuel"]
 [ext_resource type="PackedScene" uid="uid://ba12mp6f8a4rh" path="res://enemy/dummy.tscn" id="2_65205"]
 
