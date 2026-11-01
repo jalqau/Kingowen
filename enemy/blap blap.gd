@@ -3,6 +3,10 @@ var speed = 175
 var player_chase = false
 var direction : Vector2
 
+@onready var aim_pivot: Node2D = $aim_pivot
+@onready var laser_gun: FireArm = $aim_pivot/LaserGun
+
+
 @export var Goal: Node = null
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
@@ -28,6 +32,7 @@ enum EnemyState {
 var state : EnemyState = EnemyState.IDLE
 
 func update_state():
+	aim_pivot.look_at(player.global_position)
 	var distance = global_position.distance_to(player.global_position)
 	
 	if distance>attack_range:
@@ -81,6 +86,9 @@ func approach():
 func attack():
 	velocity = Vector2.ZERO
 	move_and_slide()
+	laser_gun.attack()
+	
+	
 	
 func retreat():
 	navigate_to_combat_position()

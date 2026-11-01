@@ -141,7 +141,6 @@ size = Vector2(14, 22)
 position = Vector2(556, 282)
 collision_mask = 30
 script = ExtResource("1_oul6g")
-speed = 100.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1197321676]
 z_index = -1

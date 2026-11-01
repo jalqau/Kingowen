@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ddw655mbgy6pw" path="res://enemy/blap blap.gd" id="1_wywmn"]
 [ext_resource type="Texture2D" uid="uid://8jgj8njh5564" path="res://sprites/enemy (2).png" id="2_7okcn"]
+[ext_resource type="PackedScene" uid="uid://dp0p3bufyb4b7" path="res://weapons/firearm/laser_gun.tscn" id="3_7okcn"]
 [ext_resource type="PackedScene" uid="uid://dmh14whvcbahq" path="res://scenes/health_component.tscn" id="3_udoeg"]
 [ext_resource type="PackedScene" uid="uid://boo10b2mko3qi" path="res://scenes/hitbox_component.tscn" id="4_7jl7c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wywmn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hpob"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0hmg"]
 atlas = ExtResource("2_7okcn")
@@ -53,24 +54,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0hpob"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wywmn"]
 
 [node name="Node2D" type="Node2D" unique_id=1388589471]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=490928864]
 script = ExtResource("1_wywmn")
-
-[node name="HitboxComponent" parent="CharacterBody2D" unique_id=493860781 node_paths=PackedStringArray("health_component") instance=ExtResource("4_7jl7c")]
-collision_layer = 2
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitboxComponent" unique_id=216459847]
-z_index = 1
-shape = SubResource("RectangleShape2D_wywmn")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=23017327]
-sprite_frames = SubResource("SpriteFrames_lvy0h")
-animation = &"shoot"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D" unique_id=711303906]
 debug_enabled = true
@@ -81,3 +70,21 @@ shape = SubResource("CircleShape2D_0hpob")
 
 [node name="HealthComponent" parent="CharacterBody2D" unique_id=2135486099 instance=ExtResource("3_udoeg")]
 MAX_HEALTH = 20.0
+
+[node name="aim_pivot" type="Node2D" parent="CharacterBody2D" unique_id=607999747]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/aim_pivot" unique_id=23017327]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_lvy0h")
+animation = &"shoot"
+
+[node name="HitboxComponent" parent="CharacterBody2D/aim_pivot" unique_id=493860781 node_paths=PackedStringArray("health_component") instance=ExtResource("4_7jl7c")]
+collision_layer = 2
+health_component = NodePath("../../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/aim_pivot/HitboxComponent" unique_id=216459847]
+z_index = 1
+shape = SubResource("RectangleShape2D_wywmn")
+
+[node name="LaserGun" parent="CharacterBody2D/aim_pivot" unique_id=859444488 instance=ExtResource("3_7okcn")]
+stun_time = 0.5
