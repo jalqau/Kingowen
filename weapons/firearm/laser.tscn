@@ -1,7 +1,42 @@
 [gd_scene format=3 uid="uid://bvqw6gd015mx1"]
 
+[ext_resource type="Script" uid="uid://ded3iohengkrf" path="res://components/bullet.gd" id="1_svhro"]
+[ext_resource type="Texture2D" uid="uid://cn3dvsygdtnan" path="res://sprites/bullet (1).png" id="2_xsr4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5mcx"]
+atlas = ExtResource("2_xsr4y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlblt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5mcx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
+radius = 4.0
+
 [node name="Laser" type="CharacterBody2D" unique_id=1456581346]
+scale = Vector2(0.5786787, 0.5786787)
+collision_mask = 2
+script = ExtResource("1_svhro")
+speed = 500.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=508663053]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1180633160]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_jlblt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1935224092]
+[node name="Area2D" type="Area2D" parent="." unique_id=92180685]
+collision_layer = 16
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935224092]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_boad6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

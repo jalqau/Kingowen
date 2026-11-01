@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://divwog21i6yo1" path="res://sprites/player-neo (3).png" id="3_g6k8r"]
 [ext_resource type="Script" uid="uid://xtx7jvj3h2yv" path="res://scenes/health_component.gd" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://c5v1ooabmmrrg" path="res://sprites/player-neo.png" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dp0p3bufyb4b7" path="res://weapons/firearm/laser_gun.tscn" id="5_boad6"]
 [ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapons/melee_weapon/sword.tscn" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
@@ -38,6 +39,10 @@ animations = [{
 atlas = ExtResource("3_g6k8r")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hag"]
+atlas = ExtResource("3_g6k8r")
+region = Rect2(224, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
 atlas = ExtResource("3_g6k8r")
 region = Rect2(96, 32, 32, 32)
@@ -62,6 +67,10 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("3_g6k8r")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb6p2"]
+atlas = ExtResource("3_g6k8r")
+region = Rect2(224, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lvy0h"]
 animations = [{
 "frames": [{
@@ -70,6 +79,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hag")
+}],
+"loop": 1,
+"name": &"default2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -104,6 +121,14 @@ animations = [{
 "loop": 1,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb6p2")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
@@ -112,6 +137,7 @@ size = Vector2(30, 18)
 [node name="Player" type="CharacterBody2D" unique_id=1059315968]
 position = Vector2(556, 282)
 script = ExtResource("1_oul6g")
+speed = 100.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1197321676]
 z_index = -1
@@ -121,15 +147,17 @@ animation = &"run"
 
 [node name="aim_pivot" type="Node2D" parent="." unique_id=872396486]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="aim_pivot" unique_id=132574110]
-rotation = 1.5707964
-sprite_frames = SubResource("SpriteFrames_lvy0h")
-animation = &"hit2"
-
 [node name="Sword" parent="aim_pivot" unique_id=2025403122 instance=ExtResource("5_qlg0r")]
 position = Vector2(5, 0)
 knockback_force = 5.0
 stun_time = 1.0
+
+[node name="LaserGun" parent="aim_pivot" unique_id=859444488 instance=ExtResource("5_boad6")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="aim_pivot" unique_id=132574110]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_lvy0h")
+animation = &"shoot"
 
 [node name="HitboxComponent" type="Area2D" parent="aim_pivot" unique_id=1231804463 node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_g1dw6")
@@ -137,6 +165,7 @@ health_component = NodePath("../../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="aim_pivot/HitboxComponent" unique_id=1784873141]
 rotation = 1.5707964
+scale = Vector2(1.0168215, -0.46083346)
 shape = SubResource("RectangleShape2D_vu0qy")
 debug_color = Color(0.99742216, 0, 0.17616406, 0.41960785)
 

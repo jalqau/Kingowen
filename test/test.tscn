@@ -8,15 +8,24 @@
 
 [node name="Level1" parent="." unique_id=1348367504 instance=ExtResource("1_8a8pi")]
 
-[node name="dummy" parent="Level1" unique_id=363651682 instance=ExtResource("2_65205")]
+[node name="dummy2" parent="Level1" unique_id=363651682 instance=ExtResource("2_65205")]
+position = Vector2(23, -72)
+
+[node name="dummy" parent="Level1" unique_id=1815737284 instance=ExtResource("2_65205")]
 position = Vector2(64, 0)
+
+[node name="dummy3" parent="Level1" unique_id=1754687329 instance=ExtResource("2_65205")]
+position = Vector2(-58, -36)
+
+[node name="dummy4" parent="Level1" unique_id=1134027259 instance=ExtResource("2_65205")]
+position = Vector2(-51, 32)
 
 [node name="Player" parent="Level1" unique_id=1059315968 instance=ExtResource("1_syuel")]
 position = Vector2(9.999999, 7.1054274e-15)
 
 [node name="Camera2D" type="Camera2D" parent="Level1/Player" unique_id=211863535]
 position = Vector2(-1, 0)
-zoom = Vector2(5, 5)
+zoom = Vector2(3.375, 3.375)
 limit_left = -581
 limit_top = -339
 limit_right = 571

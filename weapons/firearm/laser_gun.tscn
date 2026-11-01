@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://dp0p3bufyb4b7"]
 
+[ext_resource type="Script" uid="uid://dr546041kplr7" path="res://components/firearm.gd" id="1_o6pse"]
+[ext_resource type="PackedScene" uid="uid://bvqw6gd015mx1" path="res://weapons/firearm/laser.tscn" id="2_o6pse"]
+
 [node name="LaserGun" type="Node2D" unique_id=859444488]
+script = ExtResource("1_o6pse")
+bullet_scene = ExtResource("2_o6pse")
+attack_damage = 10.0
+knockback_force = 100.0
+stun_time = 1.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=861103434]
+position = Vector2(14, 5)
+target_position = Vector2(40, 0)
+collide_with_areas = true
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=250342399]
+position = Vector2(14, 5)

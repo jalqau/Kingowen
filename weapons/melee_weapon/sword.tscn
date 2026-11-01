@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crkjftp6msgwo" path="res://weapons/melee_weapon/sword.gd" id="1_vx5j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbfq4"]
+size = Vector2(4.370363, 17.54386)
 
 [node name="Sword" type="Node2D" unique_id=2025403122]
 script = ExtResource("1_vx5j4")
@@ -12,11 +13,13 @@ stun_time = 5.0
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1195071376]
 scale = Vector2(1.0133224, 1)
+collision_layer = 16
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1929509040]
 z_index = 1
-position = Vector2(11.475, 0)
-scale = Vector2(0.745, 1.71)
+position = Vector2(5.0592456, 8.34465e-07)
+scale = Vector2(2.0081718, 1.71)
 shape = SubResource("RectangleShape2D_tbfq4")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
