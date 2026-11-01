@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cq4femnbq1038" path="res://scenes/hitbox_component.gd" id="1_0rji1"]
 
 [node name="HitboxComponent" type="Area2D" unique_id=493860781]
+collision_mask = 31
 script = ExtResource("1_0rji1")

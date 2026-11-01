@@ -16,9 +16,10 @@ func _ready() -> void:
 	global_position=pos
 	global_rotation=rota
 
-func _physics_process(_ыdelta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(dir) * speed
 	move_and_slide()
+
 
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:
@@ -53,3 +54,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 		hitbox.damage(hit_data)
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Благодаря маске, сюда попадет только стена (или игрок, если вы выбрали оба слоя)
+	queue_free()
