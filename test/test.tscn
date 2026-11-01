@@ -3,16 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://b150klcvi0p63" path="res://scenes/levels/level 1.tscn" id="1_8a8pi"]
 [ext_resource type="PackedScene" uid="uid://rsg2xoy7l4jw" path="res://player/player.tscn" id="1_syuel"]
 [ext_resource type="PackedScene" uid="uid://ba12mp6f8a4rh" path="res://enemy/dummy.tscn" id="2_65205"]
+[ext_resource type="PackedScene" uid="uid://bu8v5wbhuonms" path="res://enemy/blap blap.tscn" id="4_hrq6i"]
 
 [node name="test" type="Node2D" unique_id=718247929]
 
-[node name="Level1" parent="." unique_id=1348367504 instance=ExtResource("1_8a8pi")]
+[node name="Level1" parent="." unique_id=1348367504 groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("1_8a8pi")]
 
 [node name="dummy" parent="Level1" unique_id=363651682 instance=ExtResource("2_65205")]
 position = Vector2(64, 0)
 
 [node name="Player" parent="Level1" unique_id=1059315968 instance=ExtResource("1_syuel")]
-position = Vector2(9.999999, 7.1054274e-15)
+position = Vector2(-75, -4)
 
 [node name="Camera2D" type="Camera2D" parent="Level1/Player" unique_id=211863535]
 position = Vector2(-1, 0)
@@ -21,3 +22,6 @@ limit_left = -581
 limit_top = -339
 limit_right = 571
 limit_bottom = 311
+
+[node name="Node2D" parent="." unique_id=1388589471 instance=ExtResource("4_hrq6i")]
+position = Vector2(90, -43)

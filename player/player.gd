@@ -43,7 +43,9 @@ func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 	
 func _on_animation_finished():
-	is_attacking = false
+	if state == PlayerState.ATTACK_HAND:
+		is_attacking = false
+		state = PlayerState.IDLE
 
 
 func _physics_process(delta: float) -> void:
@@ -87,7 +89,7 @@ func move():
 func handle_attack_input():
 	var attack_br = Input.is_action_just_pressed("attack")
 
-	if attack_br:
+	if attack_br and not is_attacking:
 		state = PlayerState.ATTACK_HAND
 		melee_weapon.attack()
 		is_attacking = true

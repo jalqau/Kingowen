@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c5v1ooabmmrrg" path="res://sprites/player-neo.png" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://djxe6jqr1xdgi" path="res://weapons/melee_weapon/sword.tscn" id="5_qlg0r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
+size = Vector2(18, 18)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("4_dqkch")
 region = Rect2(144, 32, 32, 32)
@@ -73,10 +76,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.3,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_rgyib")
 }, {
-"duration": 0.8,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hg6s5")
 }],
 "loop": 0,
@@ -84,10 +87,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.3,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_8t03j")
 }, {
-"duration": 0.8,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2ieo8")
 }],
 "loop": 0,
@@ -106,12 +109,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
-size = Vector2(30, 18)
-
-[node name="Player" type="CharacterBody2D" unique_id=1059315968]
+[node name="Player" type="CharacterBody2D" unique_id=1059315968 groups=["navigation_polygon_source_geometry_group", "player"]]
 position = Vector2(556, 282)
 script = ExtResource("1_oul6g")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1231804463 node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_g1dw6")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=999640078]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vu0qy")
+debug_color = Color(0.99742216, 0, 0.17616406, 0.41960785)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1197321676]
 z_index = -1
@@ -131,14 +140,10 @@ position = Vector2(5, 0)
 knockback_force = 5.0
 stun_time = 1.0
 
-[node name="HitboxComponent" type="Area2D" parent="aim_pivot" unique_id=1231804463 node_paths=PackedStringArray("health_component")]
-script = ExtResource("3_g1dw6")
-health_component = NodePath("../../HealthComponent")
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1344405089]
+script = ExtResource("3_yw30f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="aim_pivot/HitboxComponent" unique_id=1784873141]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784873141]
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_vu0qy")
 debug_color = Color(0.99742216, 0, 0.17616406, 0.41960785)
-
-[node name="HealthComponent" type="Node2D" parent="." unique_id=1344405089]
-script = ExtResource("3_yw30f")
