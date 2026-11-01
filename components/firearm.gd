@@ -6,7 +6,6 @@ extends Weapon
 @onready var sound: AudioStreamPlayer2D = $Sound
 
 func attack() -> void:
-	print("fire")
 	sound.play()
 
 	var bullet = bullet_scene.instantiate()

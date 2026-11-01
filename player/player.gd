@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 @export var speed: float = 300.0
 
 var weapons: Array[Weapon] = []
@@ -34,8 +36,8 @@ func _ready() -> void:
 	for child in aim_pivot.get_children():
 		if child is Weapon:
 			weapons.append(child)
-
 	equip(0)
+	health_component.died.connect(_on_player_died)
 
 
 func _on_animation_finished() -> void:
@@ -83,7 +85,6 @@ func equip(index: int) -> void:
 	elif index == 1:
 		idle_animation = "default2"
 
-	print(current_weapon.name)
 
 
 func handle_weapon_switch() -> void:
@@ -137,3 +138,6 @@ func handle_attack_input() -> void:
 
 		current_weapon.attack()
 		is_attacking = true
+
+func _on_player_died():
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

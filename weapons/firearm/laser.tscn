@@ -34,7 +34,7 @@ sprite_frames = SubResource("SpriteFrames_jlblt")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=92180685]
 collision_layer = 16
-collision_mask = 14
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935224092]
 rotation = 1.5707964

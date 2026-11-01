@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://xuqghxq304og"]
+
+[ext_resource type="Script" uid="uid://bpx315iskjvrb" path="res://scenes/game_over.gd" id="1_xeevv"]
+
+[node name="Node2D" type="Control" unique_id=567496127]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xeevv")
+
+[node name="Restart" type="Button" parent="." unique_id=724057240]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 262.0
+offset_right = 447.0
+offset_bottom = 392.0
+text = "RESTART"
+
+[node name="Quit" type="Button" parent="." unique_id=484606406]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 255.0
+offset_right = 908.0
+offset_bottom = 397.0
+text = "QUIT"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

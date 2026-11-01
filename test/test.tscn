@@ -8,16 +8,39 @@
 
 [node name="Level1" parent="." unique_id=1348367504 groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("1_8a8pi")]
 
-[node name="Player" parent="Level1" unique_id=1059315968 groups=["player"] instance=ExtResource("1_syuel")]
+[node name="Player" parent="Level1" unique_id=1059315968 instance=ExtResource("1_syuel")]
 position = Vector2(-75, -4)
 
 [node name="Camera2D" type="Camera2D" parent="Level1/Player" unique_id=211863535]
 position = Vector2(-1, 0)
+scale = Vector2(28.069757, 11.771647)
 zoom = Vector2(3.375, 3.375)
+limit_enabled = false
 limit_left = -581
 limit_top = -339
 limit_right = 571
 limit_bottom = 311
 
 [node name="Node2D" parent="." unique_id=1388589471 instance=ExtResource("4_hrq6i")]
-position = Vector2(80, -125)
+position = Vector2(286, 328)
+
+[node name="Node2D2" parent="." unique_id=235582839 instance=ExtResource("4_hrq6i")]
+position = Vector2(356, -72)
+
+[node name="Node2D4" parent="." unique_id=420592238 instance=ExtResource("4_hrq6i")]
+position = Vector2(-125, -463)
+
+[node name="Node2D3" parent="." unique_id=43845070 instance=ExtResource("4_hrq6i")]
+position = Vector2(-345, -258)
+
+[node name="Node2D5" parent="." unique_id=85394245 instance=ExtResource("4_hrq6i")]
+position = Vector2(342, -233)
+
+[node name="Node2D6" parent="." unique_id=1884156132 instance=ExtResource("4_hrq6i")]
+position = Vector2(-405, 117)
+
+[node name="Node2D7" parent="." unique_id=1452328508 instance=ExtResource("4_hrq6i")]
+position = Vector2(240, -375)
+
+[node name="Node2D8" parent="." unique_id=83459829 instance=ExtResource("4_hrq6i")]
+position = Vector2(448, -370)

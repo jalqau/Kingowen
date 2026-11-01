@@ -60,6 +60,7 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=490928864]
 script = ExtResource("1_wywmn")
+attack_cooldown = 0.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D" unique_id=711303906]
 debug_enabled = true

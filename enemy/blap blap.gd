@@ -15,6 +15,13 @@ var direction : Vector2
 @export var retreat_range: float = 50.0
 @export var preferred_range: float = 80.0
 
+@export var attack_cooldown: float = 1.5
+var can_attack: bool = true
+
+@onready var health_component: HealthComponent = $HealthComponent
+
+func _ready() -> void:
+	health_component.died.connect(_on_enemy_died)
 
 func _physics_process(delta: float) -> void:
 	update_state()
@@ -28,6 +35,9 @@ enum EnemyState {
 	SEARCH,
 	DEATH
 }
+
+func _on_enemy_died() -> void:
+	queue_free()
 
 var state : EnemyState = EnemyState.IDLE
 
@@ -86,9 +96,12 @@ func approach():
 func attack():
 	velocity = Vector2.ZERO
 	move_and_slide()
-	laser_gun.attack()
 	
-	
+	if can_attack:
+		can_attack = false
+		laser_gun.attack()
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
 	
 func retreat():
 	navigate_to_combat_position()

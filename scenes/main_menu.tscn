@@ -19,20 +19,11 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="Button_manager" unique_id=1054419122]
 layout_mode = 0
-offset_left = 383.0
-offset_top = 326.0
-offset_right = 764.0
-offset_bottom = 462.0
+offset_left = 98.0
+offset_top = 453.0
+offset_right = 479.0
+offset_bottom = 589.0
 text = "Start"
-icon = ExtResource("2_ekxnf")
-
-[node name="Options" type="Button" parent="Button_manager" unique_id=154791937]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 512.0
-offset_right = 470.0
-offset_bottom = 597.0
-text = "Options"
 
 [node name="Quit" type="Button" parent="Button_manager" unique_id=1505871518]
 layout_mode = 0
@@ -43,5 +34,4 @@ offset_bottom = 631.0
 text = "Quit"
 
 [connection signal="pressed" from="Button_manager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button_manager/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Button_manager/Quit" to="." method="_on_quit_pressed"]
