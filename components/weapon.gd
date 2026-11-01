@@ -11,7 +11,7 @@ func attack() -> void:
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
-		var hitbox : HitboxComponent = area
+		var _hitbox : HitboxComponent = area
 		
 		var hit_data = Attack.new()
 		hit_data.attack_damage = attack_damage

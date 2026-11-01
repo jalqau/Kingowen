@@ -11,6 +11,7 @@ func attack() -> void:
 	if is_swinging:
 		return
 	is_swinging = true
+	print('attack')
 
 	attack_area.set_deferred("monitoring", true)
 	await get_tree().create_timer(hit_time).timeout

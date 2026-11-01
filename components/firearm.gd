@@ -3,9 +3,11 @@ extends Weapon
 
 @export var bullet_scene: PackedScene
 @onready var muzzle: Marker2D = $Muzzle
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 func attack() -> void:
 	print("fire")
+	sound.play()
 
 	var bullet = bullet_scene.instantiate()
 

@@ -8,11 +8,11 @@
 
 [node name="Level1" parent="." unique_id=1348367504 instance=ExtResource("1_8a8pi")]
 
-[node name="dummy2" parent="Level1" unique_id=363651682 instance=ExtResource("2_65205")]
-position = Vector2(23, -72)
-
 [node name="dummy" parent="Level1" unique_id=1815737284 instance=ExtResource("2_65205")]
 position = Vector2(64, 0)
+
+[node name="dummy2" parent="Level1" unique_id=363651682 instance=ExtResource("2_65205")]
+position = Vector2(23, -72)
 
 [node name="dummy3" parent="Level1" unique_id=1754687329 instance=ExtResource("2_65205")]
 position = Vector2(-58, -36)

@@ -43,7 +43,7 @@ func _on_animation_finished() -> void:
 	state = PlayerState.IDLE
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move()
 	handle_weapon_switch()
 	process_animation()

@@ -16,7 +16,7 @@ func _ready() -> void:
 	global_position=pos
 	global_rotation=rota
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_ыdelta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(dir) * speed
 	move_and_slide()
 
