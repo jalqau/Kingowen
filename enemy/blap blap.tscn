@@ -61,6 +61,7 @@ animations = [{
 script = ExtResource("1_wywmn")
 
 [node name="HitboxComponent" parent="CharacterBody2D" unique_id=493860781 node_paths=PackedStringArray("health_component") instance=ExtResource("4_7jl7c")]
+collision_layer = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitboxComponent" unique_id=216459847]

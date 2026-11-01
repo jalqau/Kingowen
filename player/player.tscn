@@ -134,7 +134,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu0qy"]
 size = Vector2(30, 18)
 
-[node name="Player" type="CharacterBody2D" unique_id=1059315968]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlblt"]
+size = Vector2(14, 22)
+
+[node name="Player" type="CharacterBody2D" unique_id=1059315968 groups=["player"]]
 position = Vector2(556, 282)
 script = ExtResource("1_oul6g")
 speed = 100.0
@@ -170,3 +173,6 @@ shape = SubResource("RectangleShape2D_vu0qy")
 debug_color = Color(0.99742216, 0, 0.17616406, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=2135486099 instance=ExtResource("7_boad6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669206199]
+shape = SubResource("RectangleShape2D_jlblt")
